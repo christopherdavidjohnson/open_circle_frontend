@@ -7,7 +7,7 @@ function App() {
     <Router>
       <div className="App">
         <h1>Oh Hey!</h1>
-        <h1>Hey! How's it going?</h1>
+        <h1>Why isn't this updating?</h1>
         <Switch>
           <Route path="/" component={Homepage}/>;
         </Switch>
