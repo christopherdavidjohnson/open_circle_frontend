@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container {
+
+}
+
+.profile-top{
+  display: flex;
+  text-align: center;
+}
+
+.banner-picture {
+ width: 100vw;
+ display: flex;
+ position: absolute;
+ z-index: -2;
+}
+.banner-picture-div {
+ overflow: hidden;
+ width: 100vw;
+ height: 20vw;
+ display: flex;
+ position: absolute;
+ z-index: -2;
+}
+
+.name-and-picture{
+}
+
+.profile-picture{
+   display: flex;
+   width: 14vw;
+   margin-left: 43vw;
+   margin-top: 15vw;
+   border-radius: 10vw;
+   filter: drop-shadow(0px 0px 1vw black);
+}
+
+.profile-name{
+  width: 100vw;
+  margin-top: 2vw;
+  font-size: 3vw;
+}
+
+.profile-nav{
+
+}
+
+.profile-bottom{
+  display: flex;
+}
+
+.profile-intro{
+  width: 40vw;
+  height: 30vw;
+  margin: 5vw;
+  border-radius: 2vw;
+  background-color: white;
+  filter: drop-shadow(0px 0px 0.5vw black);
+  text-align: center;
+}
+
+.profile-header{
+ padding: 1vw;
+ border-top-left-radius: 2vw;
+ border-top-right-radius: 2vw;
+ background-color: #999999;
+}
+
+.profile-photos{
+  width: 40vw;
+  height: 30vw;
+  margin: 5vw;
+  border-radius: 2vw;
+  background-color: white;
+  filter: drop-shadow(0px 0px 0.5vw black);
+  text-align: center;
+}
+
+.profile-posts{
+  width: 40vw;
+  height: 30vw;
+  margin: 5vw;
+  border-radius: 2vw;
+  background-color: white;
+  filter: drop-shadow(0px 0px 0.5vw black);
+  text-align: center;
+}
