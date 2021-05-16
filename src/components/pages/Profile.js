@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../stylesheets/Profile.css';
+import banner from '../images/banner.png';
 
 class Profile extends Component {
 
@@ -12,28 +13,22 @@ class Profile extends Component {
           <div class="name-and-picture">
 
             <div class="banner-picture-div">
-              <img class="banner-picture" src="https://rejuvage.com/wp-content/uploads/2017/02/secondary-banner-placeholder.jpg" alt="banner" />
+              <img class="banner-picture" src={banner} alt="banner" />
             </div>
 
             <img class="profile-picture" src="https://schooloflanguages.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq-300x300.jpg" alt="profile" />
 
             <p class="profile-name">Person 1</p>
           </div>
-
-          <span class="profile-nav">
-            <p class="posts">Posts</p>
-            <p id="photos">Photos</p>
-            <p id="about">About</p>
-          </span>
         </div>
 
         <div class="profile-bottom">
 
           <div class="profile-left">
-            <div class="profile-intro">
+            <div class="profile-intro profile-box">
               <p class="profile-header">Intro</p>
             </div>
-            <div class="profile-photos">
+            <div class="profile-photos profile-box">
               <p class="profile-header">Photos</p>
             </div>
 
@@ -42,7 +37,7 @@ class Profile extends Component {
 
           <div class="profile-right">
 
-            <div class="profile-posts">
+            <div class="profile-posts profile-box">
               <p class="profile-header">Posts</p>
             </div>
 
