@@ -6,10 +6,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Oh Hey!</h1>
-        <h1>Why isn't this updating?</h1>
+        <h1>NAV PLACEHOLDER</h1>
         <Switch>
-          <Route path="/" component={Homepage}/>;
+          <Route path="/" component={ Homepage }/>;
         </Switch>
       </div>
     </Router>
