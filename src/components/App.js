@@ -9,7 +9,7 @@ function App() {
       <h1>Oh Hey!</h1>
       <h1>Hey! How's it going?</h1>
         <Switch>
-          <Route exact path="/" component={Homepage}/>;
+          <Route path="/" component={Homepage}/>;
         </Switch>
       </div>
     </Router>
