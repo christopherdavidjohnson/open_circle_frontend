@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/open_circle_frontend/static/css/main.fe258628.chunk.css",
-    "main.js": "/open_circle_frontend/static/js/main.cfe5e7db.chunk.js",
-    "main.js.map": "/open_circle_frontend/static/js/main.cfe5e7db.chunk.js.map",
-    "runtime-main.js": "/open_circle_frontend/static/js/runtime-main.8367a15b.js",
-    "runtime-main.js.map": "/open_circle_frontend/static/js/runtime-main.8367a15b.js.map",
-    "static/js/2.df20fa0e.chunk.js": "/open_circle_frontend/static/js/2.df20fa0e.chunk.js",
-    "static/js/2.df20fa0e.chunk.js.map": "/open_circle_frontend/static/js/2.df20fa0e.chunk.js.map",
-    "static/js/3.8f582141.chunk.js": "/open_circle_frontend/static/js/3.8f582141.chunk.js",
-    "static/js/3.8f582141.chunk.js.map": "/open_circle_frontend/static/js/3.8f582141.chunk.js.map",
+    "main.css": "/open_circle_frontend/static/css/main.4e486745.chunk.css",
+    "main.js": "/open_circle_frontend/static/js/main.ceb08214.chunk.js",
+    "main.js.map": "/open_circle_frontend/static/js/main.ceb08214.chunk.js.map",
+    "runtime-main.js": "/open_circle_frontend/static/js/runtime-main.bf7c9a03.js",
+    "runtime-main.js.map": "/open_circle_frontend/static/js/runtime-main.bf7c9a03.js.map",
+    "static/js/2.3c6126c8.chunk.js": "/open_circle_frontend/static/js/2.3c6126c8.chunk.js",
+    "static/js/2.3c6126c8.chunk.js.map": "/open_circle_frontend/static/js/2.3c6126c8.chunk.js.map",
+    "static/js/3.d69c73ec.chunk.js": "/open_circle_frontend/static/js/3.d69c73ec.chunk.js",
+    "static/js/3.d69c73ec.chunk.js.map": "/open_circle_frontend/static/js/3.d69c73ec.chunk.js.map",
     "index.html": "/open_circle_frontend/index.html",
-    "static/css/main.fe258628.chunk.css.map": "/open_circle_frontend/static/css/main.fe258628.chunk.css.map",
-    "static/js/2.df20fa0e.chunk.js.LICENSE.txt": "/open_circle_frontend/static/js/2.df20fa0e.chunk.js.LICENSE.txt"
+    "static/css/main.4e486745.chunk.css.map": "/open_circle_frontend/static/css/main.4e486745.chunk.css.map",
+    "static/js/2.3c6126c8.chunk.js.LICENSE.txt": "/open_circle_frontend/static/js/2.3c6126c8.chunk.js.LICENSE.txt",
+    "static/media/banner.9b8039ad.png": "/open_circle_frontend/static/media/banner.9b8039ad.png",
+    "static/media/banner3.84d849b7.png": "/open_circle_frontend/static/media/banner3.84d849b7.png",
+    "static/media/banner_winter.b6970b3c.png": "/open_circle_frontend/static/media/banner_winter.b6970b3c.png",
+    "static/media/banner_winter2.d2bd23f5.png": "/open_circle_frontend/static/media/banner_winter2.d2bd23f5.png",
+    "static/media/profile_placeholder.06ab9570.png": "/open_circle_frontend/static/media/profile_placeholder.06ab9570.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8367a15b.js",
-    "static/js/2.df20fa0e.chunk.js",
-    "static/css/main.fe258628.chunk.css",
-    "static/js/main.cfe5e7db.chunk.js"
+    "static/js/runtime-main.bf7c9a03.js",
+    "static/js/2.3c6126c8.chunk.js",
+    "static/css/main.4e486745.chunk.css",
+    "static/js/main.ceb08214.chunk.js"
   ]
 }
