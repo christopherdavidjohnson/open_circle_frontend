@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import '../stylesheets/Profile.css';
-import banner from '../images/banner.png';
+
+import banner1 from '../images/banner.png';
+import banner2 from '../images/banner_winter.png';
+import banner3 from '../images/banner_winter2.png';
+import banner4 from '../images/banner3.png';
+
+import profile from '../images/profile_placeholder.png';
+
 
 class Profile extends Component {
 
@@ -13,10 +20,10 @@ class Profile extends Component {
           <div class="name-and-picture">
 
             <div class="banner-picture-div">
-              <img class="banner-picture" src={banner} alt="banner" />
+              <img class="banner-picture" src={banner3} alt="banner" />
             </div>
 
-            <img class="profile-picture" src="https://schooloflanguages.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq-300x300.jpg" alt="profile" />
+            <img class="profile-picture" src={profile} alt="profile" />
 
             <p class="profile-name">Person 1</p>
           </div>
