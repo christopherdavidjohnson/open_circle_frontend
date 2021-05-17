@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../stylesheets/Home.css';
+import '../stylesheets/Circles.css';
 
 class Circles extends Component {
   render () {
