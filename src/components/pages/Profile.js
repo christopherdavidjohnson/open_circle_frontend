@@ -20,7 +20,7 @@ class Profile extends Component {
           <div class="name-and-picture">
 
             <div class="banner-picture-div">
-              <img class="banner-picture" src={banner3} alt="banner" />
+              <img class="banner-picture" src={banner1} alt="banner" />
             </div>
 
             <img class="profile-picture" src={profile} alt="profile" />
