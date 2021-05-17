@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { HashRouter as HashRouter, Switch, Route, Link} from "react-router-dom";
 import axios from 'axios'
 import Home from "./pages/Home";
+import Login from './pages/registrations/Login'
+import Signup from './pages/registrations/Signup'
 import Profile from "./pages/Profile";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import Circles from "./pages/Circles";
 import Messages from "./pages/Messages";
 import Feed from "./pages/Feed";
@@ -20,17 +20,8 @@ class App extends Component {
     };
   }
 
-  handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
-  }
-  handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
+  componentDidMount() {
+    this.loginStatus()
   }
 
   loginStatus = () => {
@@ -46,6 +37,19 @@ class App extends Component {
     .catch(error => console.log('api errors:', error))
   }
 
+  handleLogin = (data) => {
+    this.setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+  handleLogout = () => {
+    this.setState({
+    isLoggedIn: false,
+    user: {}
+    })
+  }
+
   render() {
     return (
       <HashRouter>
@@ -53,14 +57,6 @@ class App extends Component {
           <div className="navbar">
             <div className="nav">
               <Link to="/homepage">Home</Link>
-            </div>
-
-            <div className="nav">
-              <Link to="/login">Login</Link>
-            </div>
-
-            <div className="nav">
-              <Link to="/signup">Signup</Link>
             </div>
 
             <div className="nav">
@@ -81,13 +77,28 @@ class App extends Component {
           </div>
           <Switch>
 
-            <Route path="/login" component={Login}/>;
-            <Route path="/signup" component={Signup}/>;
             <Route path="/profile" component={Profile}/>;
             <Route path="/circles" component={Circles}/>;
             <Route path="/messages" component={Messages}/>;
             <Route path="/feed" component={Feed}/>;
-            <Route path="/" component={Home}/>;
+            <Route
+              path='/login'
+              render={props => (
+              <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route
+              path='/signup' 
+              render={props => (
+              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route
+              path="/"
+              render={props => (
+              <Home {...props} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />;
 
           </Switch>
         </div>
