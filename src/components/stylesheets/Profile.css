@@ -52,7 +52,6 @@
 .profile-bottom{
   display: flex;
   margin-bottom: 4vw;
-  text-align: left;
 }
 
 
@@ -72,7 +71,7 @@
   background-color: white;
   /* filter: drop-shadow(0px 0px 0.5vw black); */
   text-align: center;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
 }
 
 .profile-posts{
