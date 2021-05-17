@@ -18,6 +18,7 @@ class App extends Component {
       isLoggedIn: false,
       user: {}
     };
+    this._handleClick = this._handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,14 @@ class App extends Component {
       }
     })
     .catch(error => console.log('api errors:', error))
+  }
+
+  //for logout button
+  _handleClick = () => {
+    axios.delete('https://open-circle-server.herokuapp.com/logout', {withCredentials: true}).then(response => {
+    this.handleLogout()
+    this.history.push('/')
+   }).catch(error => console.log(error))
   }
 
   handleLogin = (data) => {
@@ -56,7 +65,7 @@ class App extends Component {
         <div className="App">
           <div className="navbar">
             <div className="nav">
-              <Link to="/homepage">Home</Link>
+              <Link to="/">Home</Link>
             </div>
 
             <div className="nav">
@@ -74,9 +83,14 @@ class App extends Component {
             <div className="nav">
               <Link to="/feed">Feed</Link>
             </div>
+
+            {
+              this.loggedInStatus ?
+              <Link to='/logout' onClick={this._handleClick}>Log Out</Link> : null
+            }
+
           </div>
           <Switch>
-
             <Route path="/profile" component={Profile}/>;
             <Route path="/circles" component={Circles}/>;
             <Route path="/messages" component={Messages}/>;
@@ -88,7 +102,7 @@ class App extends Component {
               )}
             />
             <Route
-              path='/signup' 
+              path='/signup'
               render={props => (
               <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
               )}
