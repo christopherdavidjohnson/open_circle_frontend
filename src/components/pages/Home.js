@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import '../stylesheets/Homepage.css';
+import '../stylesheets/Home.css';
 
-class Homepage extends Component {
+class Home extends Component {
   render () {
     return (
       <h1 className="home_header"> Welcome to the homepage!</h1>
+
+
     );
   }
 }
 
-export default Homepage
+export default Home
