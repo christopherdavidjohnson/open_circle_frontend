@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in',
+    axios.get('https://open-circle-server.herokuapp.com/logged_in',
    {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
@@ -78,7 +78,7 @@ class App extends Component {
             <div className="nav">
               <Link to="/feed">Feed</Link>
             </div>
-          </div> 
+          </div>
           <Switch>
 
             <Route path="/login" component={Login}/>;
