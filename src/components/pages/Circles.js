@@ -4,7 +4,7 @@ import '../stylesheets/Circles.css';
 class Circles extends Component {
   render () {
     return (
-      <h1 className="home_header"> Welcome to the circles page!</h1>
+      <h1 className="home_header"> Welcome to the Circles page!</h1>
 
 
     );

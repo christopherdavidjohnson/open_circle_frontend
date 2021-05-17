@@ -7,35 +7,41 @@ import Signup from "./pages/Signup";
 import Circles from "./pages/Circles";
 import Messages from "./pages/Messages";
 import Feed from "./pages/Feed";
+import './stylesheets/App.css';
 
 function App() {
   return (
     <HashRouter>
       <div className="App">
 
-        <ul>
-          <li>
+
+          <div className="nav">
             <Link to="/homepage">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
+          </div>
+
+          <div className="nav">
             <Link to="/login">Login</Link>
-          </li>
-          <li>
+          </div>
+
+          <div className="nav">
             <Link to="/signup">Signup</Link>
-          </li>
-          <li>
+          </div>
+
+          <div className="nav">
+            <Link to="/profile">Profile</Link>
+          </div>
+
+          <div className="nav">
             <Link to="/circles">Circles</Link>
-          </li>
-          <li>
+          </div>
+
+          <div className="nav">
             <Link to="/messages">Messages</Link>
-          </li>
-          <li>
+          </div>
+
+          <div className="nav">
             <Link to="/feed">Feed</Link>
-          </li>
-        </ul>
+          </div>
 
 
         <Switch>
