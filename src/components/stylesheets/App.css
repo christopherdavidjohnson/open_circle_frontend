@@ -3,11 +3,19 @@
 }
 
 .navbar{
+  position: fixed;
+  top: 0;
+  z-index: 1;
   width: 100vw;
-  background-color: #e1e1e1;
+  background-color: rgba(153, 153, 153, 0.5);
 }
 
 .nav{
   padding: 2vw;
   display: inline-block;
+}
+
+.home_header{
+  margin-top: 45vh;
+  margin-bottom: 5vh;
 }
