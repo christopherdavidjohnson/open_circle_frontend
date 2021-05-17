@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../stylesheets/Home.css';
+import '../stylesheets/Feed.css';
 
 class Feed extends Component {
   render () {

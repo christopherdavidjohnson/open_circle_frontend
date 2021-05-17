@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../stylesheets/Signup.css';
 
 class Signup extends Component {
   render () {
