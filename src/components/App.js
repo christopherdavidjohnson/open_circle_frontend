@@ -12,7 +12,6 @@ function App() {
   return (
     <HashRouter>
       <div className="App">
-
         <ul>
           <li>
             <Link to="/homepage">Home</Link>
