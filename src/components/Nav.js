@@ -53,7 +53,12 @@ class Nav extends Component {
               <Route path="/profile" component={ Profile }/>;
               <Route path="/circles" component={ Circles }/>;
               <Route path="/messages" component={ Messages }/>;
-              <Route path="/feed" component={ Feed }/>;
+              <Route
+                path="/feed"
+                render={props=> (
+                  <Feed user={ this.props.user } />
+                )}
+              />;
               <Route
                 path='/login'
                 render={props => (

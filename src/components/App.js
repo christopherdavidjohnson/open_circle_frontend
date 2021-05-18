@@ -64,6 +64,7 @@ class App extends Component {
           handleClick = { this._handleClick }
           handleLogin = { this.handleLogin }
           isLoggedIn = {this.state.isLoggedIn}
+          user = {this.state.user}
       />
     );
   }
