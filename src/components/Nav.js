@@ -17,8 +17,9 @@ class Nav extends Component {
   }
 
   render () {
+    console.log('logout buttton test', this.props.loggedInStatus);
     return (
-      <div>
+      <div className="navdiv">
         <HashRouter>
           <div className="App">
             <div className="navbar">
@@ -43,8 +44,8 @@ class Nav extends Component {
               </div>
 
               {
-
-                <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link>
+                this.props.isLoggedIn ?
+                <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link> : null
               }
 
             </div>

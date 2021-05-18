@@ -22,11 +22,12 @@ class App extends Component {
     axios.get('https://open-circle-server.herokuapp.com/logged_in',
    {withCredentials: true})
     .then(response => {
-      if (response.data.logged_in) {
+      if (response.data.logged_in && !this.state.isLoggedIn) {
         this.handleLogin(response)
-      } else {
+      } else if (!response.data.logged_in && this.state.loggedInStatus){
         this.handleLogout()
       }
+      console.log('logged in?', response);
     })
     .catch(error => console.log('api errors:', error))
   }
@@ -34,12 +35,13 @@ class App extends Component {
   //for logout button
   _handleClick = () => {
     axios.delete('https://open-circle-server.herokuapp.com/logout', {withCredentials: true}).then(response => {
-    this.handleLogout()
-    this.history.push('/')
+    this.handleLogout();
+    this.props.history.push('/')
    }).catch(error => console.log(error))
   }
 
   handleLogin = (data) => {
+    console.log(data);
     this.setState({
       isLoggedIn: true,
       user: data.user
@@ -50,6 +52,7 @@ class App extends Component {
     isLoggedIn: false,
     user: {}
     })
+    console.log("loggedin status at logout", this.isLoggedIn)
   }
 
   render() {

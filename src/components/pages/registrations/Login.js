@@ -35,6 +35,7 @@ class Login extends Component {
       }
 
     axios.post('https://open-circle-server.herokuapp.com/login', {user}, {withCredentials: true}).then(response => {
+      console.log("this is the post request", response.data.logged_in)
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)
         this.redirect()
