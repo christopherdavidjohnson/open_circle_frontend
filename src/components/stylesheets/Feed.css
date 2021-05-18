@@ -38,10 +38,17 @@
   text-align: left;
   filter: drop-shadow(0px 0px 0.5vw #999999);
 }
+
+.members-box:hover {
+    background-color: #a6a6a6;
+}
+
 .member-pic{
-  padding: 1vw;
-  height: 100%;
+  height: 50px;
+  width: 50px;
   border-radius: 100vw;
+  margin: auto;
+  margin-left: 10px;
 }
 .member-name{
   width: 100%;

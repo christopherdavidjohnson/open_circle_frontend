@@ -41,6 +41,7 @@ class Feed extends Component {
       <div>
         <CircleNav user={this.props.user}/>
       </div>
+
       <div className="feed-bottom">
 
         <div className="feed-left">
@@ -52,9 +53,8 @@ class Feed extends Component {
               <div className="post-box">
 
                 <div className="post-header">
-                  <img className="poster-pic" src={profile} alt="profile" />
+                  <img className="poster-pic" src={f.user.profile_image} alt="profile" />
                   <div className="poster-name">{f.user.name} </div>
-                  {console.log("f is = to" + f)}
                 </div>
                 <div className="post-body">
 
@@ -70,10 +70,12 @@ class Feed extends Component {
 
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
+          {this.state.posts.map((m) => (
             <div className="members-box">
-              <img className="member-pic" src={profile} alt="profile" />
-              <div className="member-name"> Person 1 </div>
+              <img className="member-pic" src={m.user.profile_image} alt="profile" />
+              <div className="member-name"> {m.user.name} </div>
             </div>
+                ))}
           </div>
 
           <div className="feed-photos feed-box">
