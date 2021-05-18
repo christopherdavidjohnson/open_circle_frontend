@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CircleNav from '../navs/CircleNav'
 
 import axios from "axios";
 
@@ -37,6 +38,9 @@ class Feed extends Component {
   render () {
     return (
       <div className="container">
+      <div>
+        <CircleNav user={this.props.user}/>
+      </div>
       <div className="feed-bottom">
 
         <div className="feed-left">
