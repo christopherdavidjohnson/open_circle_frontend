@@ -50,7 +50,7 @@ class Feed extends Component {
                 <div class="post-header">
                   <img class="poster-pic" src={profile} alt="profile" />
                   <div class="poster-name">{f.user.name} </div>
-                  {console.log("f is = to" + f)}
+
                 </div>
                 <div class="post-body">
 
