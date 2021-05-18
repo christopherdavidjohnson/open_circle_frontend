@@ -5,7 +5,7 @@ import '../stylesheets/Home.css';
 class Home extends Component {
   render () {
     return (
-      <div>
+      <div className="login-signup">
         <h1 className="home_header"> Welcome to the homepage!</h1>
         <Link to='/login'>Log In</Link>
         <Link to='/signup'>Sign Up</Link>

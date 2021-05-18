@@ -26,7 +26,8 @@ class Feed extends Component {
   componentDidMount() {
     const fetchPosts = () => {
       axios.get(SERVER_URL).then((results) => {
-        this.setState({ posts: results.data.posts });
+
+        this.setState({ posts: results.data });
         setTimeout(fetchPosts, 4000);
       });
     };
@@ -48,7 +49,8 @@ class Feed extends Component {
 
                 <div class="post-header">
                   <img class="poster-pic" src={profile} alt="profile" />
-                  <div class="poster-name"> Person 1 </div>
+                  <div class="poster-name">{f.user.name} </div>
+                  {console.log("f is = to" + f)}
                 </div>
                 <div class="post-body">
 
