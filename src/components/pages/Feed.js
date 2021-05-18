@@ -54,7 +54,10 @@ class Feed extends Component {
 
                 <div className="post-header">
                   <img className="poster-pic" src={f.user.profile_image} alt="profile" />
-                  <div className="poster-name">{f.user.name} </div>
+                  <div className="post-name-and-time">
+                    <div className="poster-name">{f.user.name} </div>
+                    <div className="post-time">{f.user.created_at}</div>
+                  </div>
                 </div>
                 <div className="post-body">
 
@@ -70,16 +73,18 @@ class Feed extends Component {
 
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
-          {this.state.posts.map((m) => (
-            <a><div className="members-box">
-              <img className="member-pic" src={m.user.profile_image} alt="profile" />
-              <div className="member-name"> {m.user.name} </div>
-            </div></a>
-                ))}
+            {this.state.posts.map((m) => (
+              <div className="members-box">
+                <img className="member-pic" src={m.user.profile_image} alt="profile" />
+                <div className="member-name"> {m.user.name} </div>
+              </div>
+            ))}
           </div>
 
           <div className="feed-photos feed-box">
             <p className="feed-header">Photos</p>
+
+            <div className="feed-photos-container">
 
               <div className="feed-photo-container">
                 <img className="feed-photo-thumbnail" src={banner1} alt="profile" />
@@ -92,7 +97,7 @@ class Feed extends Component {
               </div>
 
               <div className="feed-photo-container">
-              </div>
+              </div></div>
             </div>
           </div>
         </div>
