@@ -95,12 +95,10 @@
 }
 
 .feed-photos{
-  display: inline-block;
 }
 
 
 .feed-photo-container{
-  display: inline-block;
   height: 150px;
   width: 150px;
   background-color: green;

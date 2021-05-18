@@ -71,10 +71,10 @@ class Feed extends Component {
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
           {this.state.posts.map((m) => (
-            <div className="members-box">
+            <a><div className="members-box">
               <img className="member-pic" src={m.user.profile_image} alt="profile" />
               <div className="member-name"> {m.user.name} </div>
-            </div>
+            </div></a>
                 ))}
           </div>
 

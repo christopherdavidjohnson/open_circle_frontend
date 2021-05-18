@@ -2,8 +2,7 @@
   text-align: center;
 }
 
-.navbar{
-  position: fixed;
+.navbar {
   top: 0;
   z-index: 1;
   width: 100vw;
