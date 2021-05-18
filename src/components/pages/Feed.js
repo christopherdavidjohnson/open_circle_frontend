@@ -1,10 +1,41 @@
 import React, { Component } from 'react';
+
+import axios from "axios";
+
 import profile from '../images/profile_placeholder.png';
+import banner1 from '../images/banner.png';
+import banner2 from '../images/banner_winter.png';
+import banner3 from '../images/banner_winter2.png';
+import banner4 from '../images/banner3.png';
+
 import '../stylesheets/Feed.css';
 
+const SERVER_URL = "https://open-circle-server.herokuapp.com/posts.json";
+
+
+
 class Feed extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+    };
+  }
+
+  componentDidMount() {
+    const fetchPosts = () => {
+      axios.get(SERVER_URL).then((results) => {
+        this.setState({ posts: results.data.posts });
+        setTimeout(fetchPosts, 4000);
+      });
+    };
+  fetchPosts();
+  }
+
   render () {
     return (
+
       <div class="feed-bottom">
 
         <div class="feed-left">
@@ -12,17 +43,20 @@ class Feed extends Component {
           <div class="feed-posts feed-box">
             <p class="feed-header">Posts</p>
 
-            <div class="poster-box">
+            {this.state.posts.map((f) => (
+              <div class="post-box">
 
-              <div class="post-header">
-                <img class="poster-pic" src={profile} alt="profile" />
-                <div class="poster-name"> Person 1 </div>
-              </div>
-              <div class="post-body">
-                <p class="post-text">This is what the user above posted about. I wish I had emmet working so that I could generate some lorem ipsum but instead I'll just have to talk to myself for a while.</p>
-              </div>
-            </div>
+                <div class="post-header">
+                  <img class="poster-pic" src={profile} alt="profile" />
+                  <div class="poster-name"> Person 1 </div>
+                </div>
+                <div class="post-body">
 
+                  <p class="post-text"> {f.content}</p>
+
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -38,6 +72,20 @@ class Feed extends Component {
 
           <div class="feed-photos feed-box">
             <p class="feed-header">Photos</p>
+
+              <div class="feed-photo-container">
+                <img class="feed-photo-thumbnail" src={banner1} alt="profile" />
+              </div>
+
+              <div class="feed-photo-container">
+              </div>
+
+              <div class="feed-photo-container">
+              </div>
+
+              <div class="feed-photo-container">
+              </div>
+
           </div>
         </div>
       </div>
