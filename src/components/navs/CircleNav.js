@@ -24,7 +24,7 @@ class CircleNav extends Component {
   }
 
   render () {
-    console.log(this.state.circles)
+    console.log("mycircles",this.state.circles)
     return (
       <div>
         <h1>CIRCLE NAV HERE {this.props.user.name}</h1>

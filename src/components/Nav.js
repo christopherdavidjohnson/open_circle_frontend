@@ -62,7 +62,11 @@ class Nav extends Component {
                   <Circles user={ this.props.user }/>
                 )}
               />;
-              <Route path="/messages" component={ Messages }/>;
+              <Route
+                path="/messages"
+                render={props=>(
+                  <Messages user={ this.props.user } />
+                )}/>;
               <Route
                 path="/feed"
                 render={props=> (
