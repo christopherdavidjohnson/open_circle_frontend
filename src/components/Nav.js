@@ -17,7 +17,7 @@ class Nav extends Component {
   }
 
   render () {
-    console.log('logout buttton test', this.props.loggedInStatus);
+    console.log('logout buttton test', this.props.isLoggedIn);
     return (
       <div className="navdiv">
         <HashRouter>
@@ -67,6 +67,7 @@ class Nav extends Component {
                 )}
               />
               <Route
+                exact
                 path="/"
                 render={props => (
                 <Home loggedInStatus={this.props.isLoggedIn}/>

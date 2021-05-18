@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
+import { withRouter } from 'react-router-dom';
+
 import axios from 'axios';
 
 import './stylesheets/App.css';
@@ -24,7 +26,7 @@ class App extends Component {
     .then(response => {
       if (response.data.logged_in && !this.state.isLoggedIn) {
         this.handleLogin(response)
-      } else if (!response.data.logged_in && this.state.loggedInStatus){
+      } else if (!response.data.logged_in && this.state.isLoggedIn){
         this.handleLogout()
       }
       console.log('logged in?', response);
@@ -36,7 +38,8 @@ class App extends Component {
   _handleClick = () => {
     axios.delete('https://open-circle-server.herokuapp.com/logout', {withCredentials: true}).then(response => {
     this.handleLogout();
-    this.props.history.push('/')
+    console.log(this);
+    window.location.hash= '/';
    }).catch(error => console.log(error))
   }
 
@@ -52,7 +55,7 @@ class App extends Component {
     isLoggedIn: false,
     user: {}
     })
-    console.log("loggedin status at logout", this.isLoggedIn)
+    console.log("loggedin status at logout", this.state.isLoggedIn)
   }
 
   render() {
