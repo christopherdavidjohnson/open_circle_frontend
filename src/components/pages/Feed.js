@@ -36,25 +36,25 @@ class Feed extends Component {
 
   render () {
     return (
+      <div className="container">
+      <div className="feed-bottom">
 
-      <div class="feed-bottom">
+        <div className="feed-left">
 
-        <div class="feed-left">
-
-          <div class="feed-posts feed-box">
-            <p class="feed-header">Posts</p>
+          <div className="feed-posts feed-box">
+            <p className="feed-header">Posts</p>
 
             {this.state.posts.map((f) => (
-              <div class="post-box">
+              <div className="post-box">
 
-                <div class="post-header">
-                  <img class="poster-pic" src={profile} alt="profile" />
-                  <div class="poster-name">{f.user.name} </div>
+                <div className="post-header">
+                  <img className="poster-pic" src={profile} alt="profile" />
+                  <div className="poster-name">{f.user.name} </div>
                   {console.log("f is = to" + f)}
                 </div>
-                <div class="post-body">
+                <div className="post-body">
 
-                  <p class="post-text"> {f.content}</p>
+                  <p className="post-text"> {f.content}</p>
 
                 </div>
               </div>
@@ -62,32 +62,32 @@ class Feed extends Component {
           </div>
         </div>
 
-        <div class="feed-right">
+        <div className="feed-right">
 
-          <div class="feed-members feed-box">
-            <p class="feed-header">Members</p>
-            <div class="members-box">
-              <img class="member-pic" src={profile} alt="profile" />
-              <div class="member-name"> Person 1 </div>
+          <div className="feed-members feed-box">
+            <p className="feed-header">Members</p>
+            <div className="members-box">
+              <img className="member-pic" src={profile} alt="profile" />
+              <div className="member-name"> Person 1 </div>
             </div>
           </div>
 
-          <div class="feed-photos feed-box">
-            <p class="feed-header">Photos</p>
+          <div className="feed-photos feed-box">
+            <p className="feed-header">Photos</p>
 
-              <div class="feed-photo-container">
-                <img class="feed-photo-thumbnail" src={banner1} alt="profile" />
+              <div className="feed-photo-container">
+                <img className="feed-photo-thumbnail" src={banner1} alt="profile" />
               </div>
 
-              <div class="feed-photo-container">
+              <div className="feed-photo-container">
               </div>
 
-              <div class="feed-photo-container">
+              <div className="feed-photo-container">
               </div>
 
-              <div class="feed-photo-container">
+              <div className="feed-photo-container">
               </div>
-
+            </div>
           </div>
         </div>
       </div>

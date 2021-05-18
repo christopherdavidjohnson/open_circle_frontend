@@ -50,8 +50,18 @@ class Nav extends Component {
 
             </div>
             <Switch>
-              <Route path="/profile" component={ Profile }/>;
-              <Route path="/circles" component={ Circles }/>;
+              <Route
+                path="/profile"
+                render={props=>(
+                  <Profile user={ this.props.user }/>
+                )}
+              />;
+              <Route
+                path="/circles"
+                render={props=>(
+                  <Circles user={ this.props.user }/>
+                )}
+              />;
               <Route path="/messages" component={ Messages }/>;
               <Route
                 path="/feed"
