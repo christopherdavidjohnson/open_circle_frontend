@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Post from '../Post.js'
+
+import axios from "axios";
+
 import '../stylesheets/Profile.css';
 
 import banner1 from '../images/banner.png';
@@ -8,44 +12,91 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
+const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
 
 class Profile extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: props.user.name,
+      bio: props.user.bio,
+      profile_image: props.user.profile_image,
+      photos: [],
+      posts: []
+    };
+  }
+
+  componentDidMount() {
+    const fetchPosts = () => {
+      axios.get(SERVER_URL).then((results) => {
+
+        const postArray = [];
+        results.data.forEach((post)=>{
+          if (post.user.name === this.state.name){
+            postArray.push(post);
+          }
+        })
+        this.setState({ posts: postArray });
+        setTimeout(fetchPosts, 4000);
+      });
+    };
+  fetchPosts();
+  }
+
+  displayImages = () => {
+    const imageArray = []
+    {this.state.posts.forEach((post)=>{
+      post.image.forEach((image)=>{
+        imageArray.push(image);
+      })
+    })}
+    this.setState({photos: imageArray});
+  }
+
   render () {
 
+    console.log(this.state.photos);
+
     return (
-      <div class="container">
-        <div class="profile-top">
+      <div className="container">
+        <div className="profile-top">
 
-          <div class="name-and-picture">
+          <div className="name-and-picture">
 
-            <div class="banner-picture-div">
-              <img class="banner-picture" src={banner1} alt="banner" />
+            <div className="banner-picture-div">
+              <img className="banner-picture" src={banner1} alt="banner" />
             </div>
 
-            <img class="profile-picture" src={profile} alt="profile" />
+            <img className="profile-picture" src={this.state.profile_image} alt="profile" />
 
-            <p class="profile-name">Person 1</p>
+            <p className="profile-name">{this.state.name}</p>
           </div>
         </div>
 
-        <div class="profile-bottom">
+        <div className="profile-bottom">
 
-          <div class="profile-left">
-            <div class="profile-intro profile-box">
-              <p class="profile-header">Intro</p>
+          <div className="profile-left">
+            <div className="profile-intro profile-box">
+              <p className="profile-header">Intro</p>
+              <p className="bio">{this.state.bio}</p>
             </div>
-            <div class="profile-photos profile-box">
-              <p class="profile-header">Photos</p>
+            <div className="profile-photos profile-box">
+              <p className="profile-header">Photos</p>
+
             </div>
 
           </div>
 
 
-          <div class="profile-right">
+          <div className="profile-right">
 
-            <div class="profile-posts profile-box">
-              <p class="profile-header">Posts</p>
+            <div className="profile-posts profile-box">
+              <p className="profile-header">Posts</p>
+              {this.state.posts.map((post)=>(
+                <Post data={post}/>
+              ))}
+
             </div>
 
           </div>

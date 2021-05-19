@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import CircleNav from '../navs/CircleNav'
+import CircleNav from '../navs/CircleNav';
+import Post from '../Post.js';
 
 import axios from "axios";
 
@@ -49,19 +50,8 @@ class Feed extends Component {
           <div className="feed-posts feed-box">
             <p className="feed-header">Posts</p>
 
-            {this.state.posts.map((f) => (
-              <div className="post-box">
-
-                <div className="post-header">
-                  <img className="poster-pic" src={f.user.profile_image} alt="profile" />
-                  <div className="poster-name">{f.user.name} </div>
-                </div>
-                <div className="post-body">
-
-                  <p className="post-text"> {f.content}</p>
-
-                </div>
-              </div>
+            {this.state.posts.map((p) => (
+              <Post data={p}/>
             ))}
           </div>
         </div>
