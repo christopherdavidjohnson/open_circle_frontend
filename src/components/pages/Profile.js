@@ -12,24 +12,25 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
+const SERVER_URL_POSTS = 'https://open-circle-server.herokuapp.com/posts';
+const SERVER_URL_USERS = 'https://open-circle-server.herokuapp.com/users/';
 
 class Profile extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      name: props.user.name,
-      bio: props.user.bio,
-      profile_image: props.user.profile_image,
+      name: '',
+      bio: '',
+      profile_image: '',
       photos: [],
-      posts: []
+      posts: [],
     };
   }
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL).then((results) => {
+      axios.get(SERVER_URL_POSTS).then((results) => {
 
         const postArray = [];
         results.data.forEach((post)=>{
@@ -42,7 +43,22 @@ class Profile extends Component {
       });
     };
   fetchPosts();
+
+
+  const fetchProfileId = () => {
+    console.log(this.props.match.params.id)
+    const url=`${SERVER_URL_USERS}${this.props.match.params.id}`;
+    console.log(url);
+    axios.get(url).then((results) => {
+      this.setState({
+        name: results.data.user.name,
+        bio: results.data.user.bio,
+        profile_image: results.data.user.profile_image
+       });
+    })
   }
+  fetchProfileId();
+}
 
   displayImages = () => {
     const imageArray = []
@@ -55,9 +71,7 @@ class Profile extends Component {
   }
 
   render () {
-
-    console.log(this.state.photos);
-
+    console.log("name is", this.state.name);
     return (
       <div className="container">
         <div className="profile-top">
