@@ -52,7 +52,9 @@ class Nav extends Component {
             <Switch>
               <Route
                 path="/profile/:id"
-                component={ Profile }
+                render={props=>(
+                  <Profile {...props}/>
+                )}
               />;
               <Route
                 exact path="/profile"

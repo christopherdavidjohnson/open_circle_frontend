@@ -46,12 +46,18 @@ class Profile extends Component {
 
 
   const fetchProfileId = () => {
-    const url=`${SERVER_URL_USERS} + ${this.props.match.params.id}`;
+    console.log(this.props.match.params.id)
+    const url=`${SERVER_URL_USERS}${this.props.match.params.id}`;
     console.log(url);
     axios.get(url).then((results) => {
-      this.setState({ name: results.data.name });
+      this.setState({
+        name: results.data.user.name,
+        bio: results.data.user.bio,
+        profile_image: results.data.user.profile_image
+       });
     })
   }
+  fetchProfileId();
 }
 
   displayImages = () => {
