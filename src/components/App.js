@@ -25,9 +25,9 @@ class App extends Component {
     axios.get('https://open-circle-server.herokuapp.com/logged_in',
    {withCredentials: true})
     .then(response => {
-      if (response.data.logged_in && !this.state.isLoggedIn) {
+      if (response.data.logged_in) {
         this.handleLogin(response)
-      } else if (!response.data.logged_in && this.state.isLoggedIn){
+      } else {
         this.handleLogout()
       }
       console.log('logged in?', response);

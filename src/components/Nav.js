@@ -51,7 +51,11 @@ class Nav extends Component {
             </div>
             <Switch>
               <Route
-                path="/profile"
+                path="/profile/:id"
+                component={ Profile }
+              />;
+              <Route
+                exact path="/profile"
                 render={props=>(
                   <Profile user={ this.props.user }/>
                 )}
