@@ -80,7 +80,6 @@
 }
 
 .poster-name{
-  padding: 1vw;
 }
 
 .poster-pic{
@@ -107,6 +106,18 @@
 
 
 .feed-photo-thumbnail{
-  position: flex;
+  display: inline;
   width: 150px;
+}
+
+.feed-photos-container{
+}
+
+.post-time{
+  font-size: 0.75em;
+  padding-top: 0.2em;
+}
+
+.post-name-and-time{
+  padding: 1vw;
 }
