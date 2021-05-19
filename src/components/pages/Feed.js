@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CircleNav from '../navs/CircleNav';
 import Post from '../Post.js';
+import SubmitPost from '../forms/SubmitPost.js';
 import { Link } from 'react-router-dom';
 
 import axios from "axios";
@@ -28,7 +29,7 @@ class Feed extends Component {
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL).then((results) => {
+      axios.get(SERVER_URL, {withCredentials: true}).then((results) => {
 
         this.setState({ posts: results.data });
         setTimeout(fetchPosts, 4000);
@@ -51,6 +52,25 @@ class Feed extends Component {
           <div className="feed-posts feed-box">
             <p className="feed-header">Posts</p>
 
+            <div className="post-box">
+              <div className="post-header">
+                <img className="poster-pic" src={this.props.user.profile_image} alt="profile" />
+                <div className="post-name-and-time">
+                  <div className="poster-name">{this.props.user.name} </div>
+                </div>
+              </div>
+              <div className="post-body">
+
+
+
+
+<SubmitPost/>
+
+
+
+              </div>
+            </div>
+
             {this.state.posts.map((p) => (
               <Post data={p}/>
             ))}
@@ -62,7 +82,7 @@ class Feed extends Component {
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
 
-            <Link to={`/profile/${this.props.user.password_digest}`}>
+            <Link to={`/profile/${this.props.user.id}`}>
               <div className="members-box members-box-self">
                 <img className="member-pic member-pic-self" src={this.props.user.profile_image} alt="profile" />
                 <div className="member-name member-name-self"> Edit {this.props.user.name} </div>
