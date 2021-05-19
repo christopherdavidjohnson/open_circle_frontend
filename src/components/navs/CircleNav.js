@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import '../stylesheets/CircleNav.css';
 
-const SERVER_URL = "https://open-circle-server.herokuapp.com/circles";
+const SERVER_URL = "http://localhost:3001/circles";
 
 class CircleNav extends Component {
   constructor(props) {
@@ -14,8 +14,9 @@ class CircleNav extends Component {
 
   componentDidMount() {
     const fetchCircles = () => {
+      console.log("FETCHCIRCLES");
       axios.get(SERVER_URL).then((results) => {
-
+        console.log("results", results);
         this.setState({ circles: results.data });
         setTimeout(fetchCircles, 4000);
       });
