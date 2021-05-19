@@ -60,9 +60,10 @@ class Feed extends Component {
                   </div>
                 </div>
                 <div className="post-body">
-
                   <p className="post-text"> {f.content}</p>
-
+                </div>
+                <div className="post-photos">
+                <p>{f.image.[0]}</p>
                 </div>
               </div>
             ))}
