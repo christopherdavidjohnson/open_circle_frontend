@@ -20,8 +20,8 @@ const SERVER_URL = "https://open-circle-server.herokuapp.com/posts.json";
 
 class Feed extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       posts: [],
     };
@@ -30,7 +30,7 @@ class Feed extends Component {
   componentDidMount() {
     const fetchPosts = () => {
       axios.get(SERVER_URL, {withCredentials: true}).then((results) => {
-
+        console.log(results)
         this.setState({ posts: results.data });
         setTimeout(fetchPosts, 4000);
       });
@@ -95,6 +95,10 @@ class Feed extends Component {
                 <div className="members-box">
                   <img className="member-pic" src={m.user.profile_image} alt="profile" />
                   <div className="member-name"> {m.user.name} </div>
+                  <p> test {m.user.name} </p>
+                  {m.user.circles?.map(circle => circle === "fruit" && <p>{circle.id}</p>
+
+                  )}
                 </div>
               </Link>
 
