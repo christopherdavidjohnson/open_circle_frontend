@@ -14,8 +14,7 @@ class CircleNav extends Component {
 
   componentDidMount() {
     const fetchCircles = () => {
-      console.log(this.props.user.id)
-      axios.get(SERVER_URL, {user_id: this.props.user.id}).then((results) => {
+      axios.get(SERVER_URL + '?user_id=' + this.props.user.id).then((results) => {
         console.log("results", results);
         this.setState({ circles: results.data });
         setTimeout(fetchCircles, 4000);
