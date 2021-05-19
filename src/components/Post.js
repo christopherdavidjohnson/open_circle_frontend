@@ -22,6 +22,7 @@ class Post extends Component {
         </div>
         <div className="post-body">
           <p className="post-text"> {this.props.data.content}</p>
+          <p>{this.props.data.image}</p>
         </div>
       </div>
     );

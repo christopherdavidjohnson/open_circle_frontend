@@ -12,29 +12,28 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL_POSTS = 'https://open-circle-server.herokuapp.com/posts';
-const SERVER_URL_USERS = 'https://open-circle-server.herokuapp.com/users/';
+const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
 
 class Profile extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      bio: '',
-      profile_image: '',
+  constructor(props) {
+    super(props);
+    this.props.user = {
+      name: props.user.name,
+      bio: props.user.bio,
+      profile_image: props.user.profile_image,
       photos: [],
-      posts: [],
+      posts: []
     };
   }
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL_POSTS).then((results) => {
+      axios.get(SERVER_URL).then((results) => {
 
         const postArray = [];
         results.data.forEach((post)=>{
-          if (post.user.name === this.state.name){
+          if (post.user.name === this.props.user.name){
             postArray.push(post);
           }
         })
@@ -43,20 +42,11 @@ class Profile extends Component {
       });
     };
   fetchPosts();
-
-
-  const fetchProfileId = () => {
-    const url=`${SERVER_URL_USERS} + ${this.props.match.params.id}`;
-    console.log(url);
-    axios.get(url).then((results) => {
-      this.setState({ name: results.data.name });
-    })
   }
-}
 
   displayImages = () => {
     const imageArray = []
-    {this.state.posts.forEach((post)=>{
+    {this.props.user.posts.forEach((post)=>{
       post.image.forEach((image)=>{
         imageArray.push(image);
       })
@@ -65,7 +55,9 @@ class Profile extends Component {
   }
 
   render () {
-    console.log("name is", this.state.name);
+
+
+
     return (
       <div className="container">
         <div className="profile-top">
@@ -76,9 +68,9 @@ class Profile extends Component {
               <img className="banner-picture" src={banner1} alt="banner" />
             </div>
 
-            <img className="profile-picture" src={this.state.profile_image} alt="profile" />
+            <img className="profile-picture" src={this.props.user.profile_image} alt="profile" />
 
-            <p className="profile-name">{this.state.name}</p>
+            <p className="profile-name">{this.props.user.name}</p>
           </div>
         </div>
 
@@ -87,7 +79,7 @@ class Profile extends Component {
           <div className="profile-left">
             <div className="profile-intro profile-box">
               <p className="profile-header">Intro</p>
-              <p className="bio">{this.state.bio}</p>
+              <p className="bio">{this.props.user.bio}</p>
             </div>
             <div className="profile-photos profile-box">
               <p className="profile-header">Photos</p>
@@ -101,7 +93,7 @@ class Profile extends Component {
 
             <div className="profile-posts profile-box">
               <p className="profile-header">Posts</p>
-              {this.state.posts.map((post)=>(
+              {this.props.user.posts.map((post)=>(
                 <Post data={post}/>
               ))}
 
