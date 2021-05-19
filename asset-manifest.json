@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/open_circle_frontend/static/css/main.b5850488.chunk.css",
-    "main.js": "/open_circle_frontend/static/js/main.0b4e073a.chunk.js",
-    "main.js.map": "/open_circle_frontend/static/js/main.0b4e073a.chunk.js.map",
-    "runtime-main.js": "/open_circle_frontend/static/js/runtime-main.304f6bb6.js",
-    "runtime-main.js.map": "/open_circle_frontend/static/js/runtime-main.304f6bb6.js.map",
-    "static/js/2.3e662b34.chunk.js": "/open_circle_frontend/static/js/2.3e662b34.chunk.js",
-    "static/js/2.3e662b34.chunk.js.map": "/open_circle_frontend/static/js/2.3e662b34.chunk.js.map",
-    "static/js/3.3bb74a4c.chunk.js": "/open_circle_frontend/static/js/3.3bb74a4c.chunk.js",
-    "static/js/3.3bb74a4c.chunk.js.map": "/open_circle_frontend/static/js/3.3bb74a4c.chunk.js.map",
+    "main.css": "/open_circle_frontend/static/css/main.771c9dd2.chunk.css",
+    "main.js": "/open_circle_frontend/static/js/main.3477794b.chunk.js",
+    "main.js.map": "/open_circle_frontend/static/js/main.3477794b.chunk.js.map",
+    "runtime-main.js": "/open_circle_frontend/static/js/runtime-main.60b1ad65.js",
+    "runtime-main.js.map": "/open_circle_frontend/static/js/runtime-main.60b1ad65.js.map",
+    "static/js/2.8f050a24.chunk.js": "/open_circle_frontend/static/js/2.8f050a24.chunk.js",
+    "static/js/2.8f050a24.chunk.js.map": "/open_circle_frontend/static/js/2.8f050a24.chunk.js.map",
+    "static/js/3.59c20f4f.chunk.js": "/open_circle_frontend/static/js/3.59c20f4f.chunk.js",
+    "static/js/3.59c20f4f.chunk.js.map": "/open_circle_frontend/static/js/3.59c20f4f.chunk.js.map",
     "index.html": "/open_circle_frontend/index.html",
-    "static/css/main.b5850488.chunk.css.map": "/open_circle_frontend/static/css/main.b5850488.chunk.css.map",
-    "static/js/2.3e662b34.chunk.js.LICENSE.txt": "/open_circle_frontend/static/js/2.3e662b34.chunk.js.LICENSE.txt",
+    "static/css/main.771c9dd2.chunk.css.map": "/open_circle_frontend/static/css/main.771c9dd2.chunk.css.map",
+    "static/js/2.8f050a24.chunk.js.LICENSE.txt": "/open_circle_frontend/static/js/2.8f050a24.chunk.js.LICENSE.txt",
     "static/media/banner.9b8039ad.png": "/open_circle_frontend/static/media/banner.9b8039ad.png",
     "static/media/banner3.84d849b7.png": "/open_circle_frontend/static/media/banner3.84d849b7.png",
     "static/media/banner_winter.b6970b3c.png": "/open_circle_frontend/static/media/banner_winter.b6970b3c.png",
@@ -19,9 +19,9 @@
     "static/media/profile_placeholder.06ab9570.png": "/open_circle_frontend/static/media/profile_placeholder.06ab9570.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.304f6bb6.js",
-    "static/js/2.3e662b34.chunk.js",
-    "static/css/main.b5850488.chunk.css",
-    "static/js/main.0b4e073a.chunk.js"
+    "static/js/runtime-main.60b1ad65.js",
+    "static/js/2.8f050a24.chunk.js",
+    "static/css/main.771c9dd2.chunk.css",
+    "static/js/main.3477794b.chunk.js"
   ]
 }
