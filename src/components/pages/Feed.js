@@ -62,15 +62,23 @@ class Feed extends Component {
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
 
-            {this.state.posts.map((m) => (
-            <Link to={`/profile/${m.user.id}`}>
-              <div className="members-box">
-                <img className="member-pic" src={m.user.profile_image} alt="profile" />
-                <div className="member-name"> {m.user.name} </div>
+            <Link to={`/profile/${this.props.user.password_digest}`}>
+              <div className="members-box members-box-self">
+                <img className="member-pic member-pic-self" src={this.props.user.profile_image} alt="profile" />
+                <div className="member-name member-name-self"> Edit {this.props.user.name} </div>
               </div>
+            </Link>
+
+            {this.state.posts.map((m) => (
+
+              <Link to={`/profile/${m.user.id}`}>
+                <div className="members-box">
+                  <img className="member-pic" src={m.user.profile_image} alt="profile" />
+                  <div className="member-name"> {m.user.name} </div>
+                </div>
               </Link>
 
-            ))}
+          ))}
 
           </div>
 
