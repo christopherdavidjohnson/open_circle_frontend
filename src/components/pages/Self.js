@@ -12,7 +12,7 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL = 'https://open-circle-server.herokuapp.com/';
+const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
 
 class Profile extends Component {
 
@@ -38,7 +38,7 @@ class Profile extends Component {
           }
         })
         this.setState({ posts: postArray });
-        setTimeout(fetchPosts, 4000);
+        setTimeout(fetchPosts, 30000);
       });
     };
   fetchPosts();
