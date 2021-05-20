@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Circles from "./pages/Circles";
 import Messages from "./pages/Messages";
 import Feed from "./pages/Feed";
+import Self from "./pages/Self";
 
 import './stylesheets/App.css';
 
@@ -56,6 +57,7 @@ class Nav extends Component {
                   <Profile {...props}/>
                 )}
               />;
+
               <Route
                 exact path="/profile"
                 render={props=>(
@@ -82,8 +84,8 @@ class Nav extends Component {
               <Route
                 path='/login'
                 render={props => (
-                <Login {...props}
-                circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
+                  <Login {...props}
+                  circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
                 )}
               />
               <Route
@@ -97,6 +99,13 @@ class Nav extends Component {
                 path="/"
                 render={props => (
                 <Home loggedInStatus={this.props.isLoggedIn}/>
+                )}
+              />;
+              <Route
+                path="/self/edit/:id"
+                render={props=>(
+                  <Self user={ this.props.user }
+                />
                 )}
               />;
 

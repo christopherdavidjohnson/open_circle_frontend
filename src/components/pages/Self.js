@@ -14,14 +14,11 @@ import profile from '../images/profile_placeholder.png';
 
 const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
 
-class Profile extends Component {
+class Self extends Component {
 
   constructor(props) {
     super(props);
-    this.props.user = {
-      name: props.user.name,
-      bio: props.user.bio,
-      profile_image: props.user.profile_image,
+    this.state = {
       photos: [],
       posts: []
     };
@@ -32,6 +29,7 @@ class Profile extends Component {
       axios.get(SERVER_URL).then((results) => {
 
         const postArray = [];
+
         results.data.forEach((post)=>{
           if (post.user.name === this.props.user.name){
             postArray.push(post);
@@ -58,8 +56,10 @@ class Profile extends Component {
 
 
 
+
     return (
       <div className="container">
+
         <div className="profile-top">
 
           <div className="name-and-picture">
@@ -93,7 +93,7 @@ class Profile extends Component {
 
             <div className="profile-posts profile-box">
               <p className="profile-header">Posts</p>
-              {this.props.user.posts.map((post)=>(
+              {this.state.posts.map((post)=>(
                 <Post data={post}/>
               ))}
 
@@ -107,4 +107,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Self;
