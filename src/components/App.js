@@ -65,6 +65,8 @@ class App extends Component {
     console.log('logged in fetching circles');
     this.fetchCircles();
   }
+
+
   handleLogout = () => {
     this.setState({
     isLoggedIn: false,

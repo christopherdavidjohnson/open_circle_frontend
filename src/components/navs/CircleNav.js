@@ -14,8 +14,8 @@ class CircleNav extends Component {
     return (
       <div className='circle-nav'>
         {this.props.circles.map((circle)=>(
-          <Link to='/circles'>
-          <img className="circle-pic" src={circle.image} alt="profile" />
+          <Link to={`/feed/${circle.id}`}>
+            <img className="circle-pic" src={circle.image} alt="profile" />
           </Link>
         ))}
       </div>

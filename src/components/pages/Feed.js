@@ -35,7 +35,7 @@ class Feed extends Component {
       axios.get(url).then((results) => {
         console.log("posts results on feed", results)
         this.setState({ posts: results.data });
-        setTimeout(fetchPosts, 30000);
+        setTimeout(fetchPosts, 4000);
       });
     };
 

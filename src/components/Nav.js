@@ -22,14 +22,8 @@ class Nav extends Component {
       <div className="navdiv">
         <HashRouter>
           <div className="App">
+          {this.props.isLoggedIn ?
             <div className="navbar">
-              <div className="nav">
-                <Link to="/">Home</Link>
-              </div>
-
-              <div className="nav">
-                <Link to="/profile">Profile</Link>
-              </div>
 
               <div className="nav">
                 <Link to="/circles">Circles</Link>
@@ -43,12 +37,10 @@ class Nav extends Component {
                 <Link to="/feed/:circle_id">Feed</Link>
               </div>
 
-              {
-                this.props.isLoggedIn ?
-                <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link> : null
-              }
+              <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link>
 
-            </div>
+            </div> : null
+            }
             <Switch>
               <Route
                 path="/profile/:id"
@@ -80,13 +72,6 @@ class Nav extends Component {
                 )}
               />;
               <Route
-                path='/login'
-                render={props => (
-                <Login {...props}
-                circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
-                )}
-              />
-              <Route
                 path='/signup'
                 render={props => (
                 <Signup {...props} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
@@ -96,8 +81,9 @@ class Nav extends Component {
                 exact
                 path="/"
                 render={props => (
-                <Home loggedInStatus={this.props.isLoggedIn}/>
-                )}
+                  <Login {...props}
+                  circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
+                  )}
               />;
 
             </Switch>
