@@ -32,7 +32,6 @@ class Feed extends Component {
       axios.get(SERVER_URL, {withCredentials: true}).then((results) => {
         console.log("posts results on feed", results)
         this.setState({ posts: results.data });
-        console.log("the posts are", this.state.posts);
         setTimeout(fetchPosts, 4000);
       });
     };
@@ -40,6 +39,7 @@ class Feed extends Component {
   }
 
   render () {
+    console.log("the posts are", this.state.posts);
     return (
       <div className="container">
         <h1>{this.props.user.name}</h1>
