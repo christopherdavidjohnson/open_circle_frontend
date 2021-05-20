@@ -64,7 +64,7 @@
 
 .profile-box{
   width: 45vw;
-  height: 20vw;
+  min-height: 10vw;
   margin-left: 3.5vw;
   margin-top: 3.5vw;
   border-radius: 2vw;
@@ -75,7 +75,7 @@
 }
 
 .profile-posts{
-  height: 43vw;
+  min-height: 10vh;
 }
 
 .profile-intro{

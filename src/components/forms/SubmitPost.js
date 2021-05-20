@@ -10,6 +10,7 @@ class SubmitPosts extends Component {
       content: "",
     };
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleChangeContent = this._handleChangeContent.bind(this);
   }
 
   componentDidMount() {
@@ -17,22 +18,23 @@ class SubmitPosts extends Component {
       axios.get(SERVER_URL).then((results) => {
 
         this.setState({ posts: results.data });
-        setTimeout(fetchPosts, 4000);
+        setTimeout(fetchPosts, 30000);
       });
     };
-
-  this._handleChangeContent = this._handleChangeContent.bind(this);
-
-  fetchPosts();
   }
 
 
-  _handleSubmit(event) {
+
+
+
+
+  _handleSubmit(event){
     event.preventDefault();
     axios
       .post(SERVER_URL, {
-        posts: {
-          content: this.state.content
+        post: {
+          content: this.state.content,
+          user_id: this.props.user.id
         },
       })
 
