@@ -62,7 +62,7 @@ class Feed extends Component {
                 </div>
               </div>
               <div className="post-body">
-                <SubmitPost/>
+                <SubmitPost user={this.props.user}/>
               </div>
             </div>
 
@@ -92,7 +92,6 @@ class Feed extends Component {
                   <div className="member-name"> {p.user.name} </div>
                   <p> test {p.user.name} </p>
                   {p.user.circles?.map(circle => circle === "fruit" && <p>{circle.id}</p>
-
                   )}
                 </div>
               </Link>
