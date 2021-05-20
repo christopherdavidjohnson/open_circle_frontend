@@ -76,7 +76,7 @@ class Feed extends Component {
                 </div>
               </div>
               <div className="post-body">
-                <SubmitPost user={this.props.user}/>
+                <SubmitPost user={this.props.user} circleparam={this.props.match.params.circle_id}/>
               </div>
             </div>
 
