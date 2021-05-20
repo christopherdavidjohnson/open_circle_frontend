@@ -9,6 +9,8 @@ import Circles from "./pages/Circles";
 import Messages from "./pages/Messages";
 import Feed from "./pages/Feed";
 import Self from "./pages/Self";
+import CircleNav from './navs/CircleNav';
+
 
 import './stylesheets/App.css';
 
@@ -34,11 +36,9 @@ class Nav extends Component {
                 <Link to="/messages">Messages</Link>
               </div>
 
-              <div className="nav">
-                <Link to="/feed/:circle_id">Feed</Link>
-              </div>
-
               <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link>
+              
+              <CircleNav user={ this.props.user } circles={ this.props.circles }/>
 
             </div> : null
             }
@@ -46,7 +46,7 @@ class Nav extends Component {
               <Route
                 path="/profile/:id"
                 render={props=>(
-                  <Profile {...props}/>
+                  <Profile {...props} circles={this.props.circles}/>
                 )}
               />;
 

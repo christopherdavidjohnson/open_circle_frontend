@@ -31,6 +31,7 @@ class CircleMembers extends Component {
                   <div className="member-name">
                     {friend.name}
                   </div>
+                  <p>the circle id is {this.props.circleparam}</p>
                 </div>
               </Link>
           )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
+
 import '../stylesheets/CircleNav.css';
 
 class CircleNav extends Component {

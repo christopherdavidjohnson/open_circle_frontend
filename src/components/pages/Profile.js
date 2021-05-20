@@ -30,17 +30,21 @@ class Profile extends Component {
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL_POSTS).then((results) => {
-
-        const postArray = [];
-        results.data.forEach((post)=>{
-          if (post.user.name === this.state.name){
-            postArray.push(post);
-          }
+      const postArray = [];
+      this.props.circles.forEach((circle)=>{
+        axios.get(`${SERVER_URL_POSTS}?circle_id=${circle.id}`).then((results) => {
+          console.log(`${SERVER_URL_POSTS}?circle_id=${circle.id}`);
+          results.data.forEach((post)=>{
+            if (post.user.name === this.state.name){
+              console.log('the post is',post)
+              postArray.push(post);
+            }
+          })
         })
-        this.setState({ posts: postArray });
-        setTimeout(fetchPosts, 30000);
       });
+      console.log('USER POSTS', postArray);
+      this.setState({ posts: postArray });
+      // setTimeout(fetchPosts, 30000);
     };
   fetchPosts();
 
@@ -72,6 +76,8 @@ class Profile extends Component {
 
   render () {
     console.log("name is", this.state.name);
+    console.log("the circles array coming in from props is:", this.props.circles);
+    console.log('this users posts are', this.state.posts);
     return (
       <div className="container">
         <div className="profile-top">
@@ -107,14 +113,12 @@ class Profile extends Component {
 
             <div className="profile-posts profile-box">
               <p className="profile-header">Posts</p>
-              {this.state.posts.map((post)=>(
-                <Post data={post}/>
+              {this.state.posts.map((p) => (
+                <Post post={p}/>
               ))}
 
             </div>
-
           </div>
-
         </div>
       </div>
     )

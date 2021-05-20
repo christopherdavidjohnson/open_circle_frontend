@@ -9,21 +9,22 @@ class Post extends Component {
     super();
   }
   render () {
-    console.log("The post object", this.props.data);
+    // console.log('POST RENDERING')
+    // console.log('POST TO RENDER', this.props.post.content)
     return(
       <div className="post-box">
 
         <div className="post-header">
-          <img className="poster-pic" src={this.props.data.user.profile_image} alt="profile" />
+          <img className="poster-pic" src={this.props.post.user.profile_image} alt="profile" />
           <div className="post-name-and-time">
-            <div className="poster-name">{this.props.data.user.name} </div>
-            <div className="post-time">{this.props.data.user.created_at}</div>
+            <div className="poster-name">{this.props.post.user.name} </div>
+            <div className="post-time">{this.props.post.user.created_at}</div>
           </div>
         </div>
         <div className="post-body">
-          <p className="post-text"> {this.props.data.content}</p>
-          <p>{this.props.data.image}</p>
-          <p>the prop id is {this.props.data.circle_id}</p>
+          <p className="post-text"> {this.props.post.content}</p>
+          <p>{this.props.post.image}</p>
+          <p>the circle id is {this.props.post.circle_id}</p>
         </div>
       </div>
     );

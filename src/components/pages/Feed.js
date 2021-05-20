@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 
-import CircleNav from '../navs/CircleNav';
 import Post from '../Post';
 import SubmitPost from '../forms/SubmitPost';
 import CircleMembers from '../CircleMembers'
@@ -31,20 +30,18 @@ class Feed extends Component {
   componentDidMount() {
     const fetchPosts = () => {
       const url=`${SERVER_URL_POSTS}?circle_id=${this.props.match.params.circle_id}`
-      console.log(url);
       axios.get(url).then((results) => {
-        console.log("posts results on feed", results)
         this.setState({ posts: results.data });
         setTimeout(fetchPosts, 4000);
       });
     };
 
     const fetchUsers = () => {
-      axios.get(SERVER_URL_USERS).then((results) => {
+      axios.get(`${SERVER_URL_USERS}?circle_id=${this.props.match.params.circle_id}`).then((results) => {
         console.log("USERS IN MEMBER BOX on feed", results);
-        console.log(SERVER_URL_USERS);
+        console.log('fetch users url',SERVER_URL_USERS);
         this.setState({ users: results.data });
-        setTimeout(fetchUsers, 30000);
+        // setTimeout(fetchUsers, 30000);
       });
     }
 
@@ -57,38 +54,38 @@ class Feed extends Component {
     return (
       <div className="container">
         <h1>{this.props.user.name}</h1>
-        <div>
-          <CircleNav user={ this.props.user } circles={ this.props.circles }/>
-        </div>
 
-      <div className="feed-bottom">
+        <div className="feed-bottom">
 
-        <div className="feed-left">
+          <div className="feed-left">
 
-          <div className="feed-posts feed-box">
-            <p className="feed-header">Posts</p>
+            <div className="feed-posts feed-box">
+              <p className="feed-header">Posts</p>
 
-            <div className="post-box">
-              <div className="post-header">
-                <img className="poster-pic" src={this.props.user.profile_image} alt="profile" />
-                <div className="post-name-and-time">
-                  <div className="poster-name">{this.props.user.name} </div>
+              <div className="post-box">
+                <div className="post-header">
+                  <img className="poster-pic" src={this.props.user.profile_image} alt="profile" />
+                  <div className="post-name-and-time">
+                    <div className="poster-name">{
+                      this.props.user.name}
+                    </div>
+                  </div>
+                </div>
+                <div className="post-body">
+                  <SubmitPost user={this.props.user} circleparam={this.props.match.params.circle_id}/>
                 </div>
               </div>
-              <div className="post-body">
-                <SubmitPost user={this.props.user} circleparam={this.props.match.params.circle_id}/>
-              </div>
-            </div>
 
             {this.state.posts.map((p) => (
-              <Post data={p}/>
+              <Post post={p}/>
             ))}
           </div>
         </div>
 
         <div className="feed-right">
 
-          <CircleMembers currentUser={this.props.user} friends={this.state.users}/>
+          <CircleMembers currentUser={this.props.user} friends={this.state.users} circleparam={this.props.match.params.circle_id}
+          />
 
           <div className="feed-photos feed-box">
             <p className="feed-header">Photos</p>
