@@ -34,7 +34,8 @@ class SubmitPosts extends Component {
       .post(SERVER_URL, {
         post: {
           content: this.state.content,
-          user_id: this.props.user.id
+          user_id: this.props.user.id,
+          circle_id: this.props.circleparam
         },
       })
 
@@ -49,6 +50,7 @@ class SubmitPosts extends Component {
 
 
   render() {
+
     return (
       <form onSubmit={this._handleSubmit}>
         <p>
