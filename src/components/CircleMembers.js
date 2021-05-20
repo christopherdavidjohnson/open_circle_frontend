@@ -15,7 +15,7 @@ class CircleMembers extends Component {
       <div className="feed-members feed-box">
         <p className="feed-header">Members</p>
 
-        <Link to={`/profile/edit/${this.props.currentUser.id}`}>
+        <Link to={`/self/edit/${this.props.currentUser.id}`}>
           <div className="members-box members-box-self">
             <img className="member-pic member-pic-self" src={this.props.currentUser.profile_image} alt="profile" />
             <div className="member-name member-name-self"> Edit {this.props.currentUser.name} </div>

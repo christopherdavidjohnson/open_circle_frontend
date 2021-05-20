@@ -59,7 +59,7 @@ class Self extends Component {
 
     return (
       <div className="container">
-
+      <h1> This is you </h1>
         <div className="profile-top">
 
           <div className="name-and-picture">
