@@ -74,16 +74,6 @@ class Nav extends Component {
                 )}
               />;
               <Route
-<<<<<<< HEAD
-=======
-                path='/login'
-                render={props => (
-                  <Login {...props}
-                  circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
-                )}
-              />
-              <Route
->>>>>>> eb22c2e2389cba069512a65f826c7e79c0915941
                 path='/signup'
                 render={props => (
                 <Signup {...props} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>

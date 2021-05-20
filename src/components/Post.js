@@ -9,6 +9,7 @@ class Post extends Component {
     super();
   }
   render () {
+    console.log("The post object", this.props.data);
     return(
       <div className="post-box">
 
@@ -22,6 +23,7 @@ class Post extends Component {
         <div className="post-body">
           <p className="post-text"> {this.props.data.content}</p>
           <p>{this.props.data.image}</p>
+          <p>the prop id is {this.props.data.circle_id}</p>
         </div>
       </div>
     );
