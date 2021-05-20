@@ -6,6 +6,9 @@ import axios from 'axios';
 
 import './stylesheets/App.css';
 
+const SERVER_URL_CIRCLES = "https://open-circle-server.herokuapp.com/circles";
+
+
 class App extends Component {
 
   constructor(props) {
@@ -13,12 +16,12 @@ class App extends Component {
     this.state = {
       isLoggedIn: false,
       user: {},
-      circle: ''
+      circles: []
     };
   }
 
   componentDidMount() {
-    this.loginStatus()
+    this.loginStatus();
   }
 
   loginStatus = () => {
@@ -35,6 +38,14 @@ class App extends Component {
     .catch(error => console.log('api errors:', error))
   }
 
+  fetchCircles = () => {
+    axios.get(`${SERVER_URL_CIRCLES}?user_id=${this.state.user.id}`).then((results) => {
+      console.log("the results are", results);
+      this.setState({ circles: results.data });
+      // setTimeout(fetchCircles, 30000);
+    });
+  };
+
   //for logout button
   _handleClick = () => {
     axios.delete('https://open-circle-server.herokuapp.com/logout', {withCredentials: true}).then(response => {
@@ -50,6 +61,8 @@ class App extends Component {
       isLoggedIn: true,
       user: data.user
     })
+    console.log('logged in fetching circles');
+    this.fetchCircles();
   }
   handleLogout = () => {
     this.setState({
@@ -60,12 +73,15 @@ class App extends Component {
   }
 
   render() {
+    console.log('App.js logged in state', this.state.isLoggedIn)
+    console.log('App.js circles state', this.state.circles)
     return (
       <Nav
           handleClick = { this._handleClick }
           handleLogin = { this.handleLogin }
           isLoggedIn = {this.state.isLoggedIn}
           user = {this.state.user}
+          circles = {this.state.circles}
       />
     );
   }

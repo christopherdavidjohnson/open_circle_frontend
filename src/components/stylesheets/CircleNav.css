@@ -8,7 +8,7 @@
   height:80px;
   margin: 10px;
   border-radius: 100%;
-  filter: grayscale(45%) blur(0.2px);
+  filter: grayscale(65%) blur(0.2px);
   transition: .3s ease-in-out;
   box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }

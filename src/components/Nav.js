@@ -40,7 +40,7 @@ class Nav extends Component {
               </div>
 
               <div className="nav">
-                <Link to="/feed">Feed</Link>
+                <Link to="/feed/:id">Feed</Link>
               </div>
 
               {
@@ -74,15 +74,16 @@ class Nav extends Component {
                   <Messages user={ this.props.user } />
                 )}/>;
               <Route
-                path="/feed"
+                path="/feed/:circle_id"
                 render={props=> (
-                  <Feed user={ this.props.user } />
+                  <Feed user={ this.props.user } circles={ this.props.circles } {...props}/>
                 )}
               />;
               <Route
                 path='/login'
                 render={props => (
-                <Login {...props} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
+                <Login {...props}
+                circles={this.props.circles} handleLogin={this.props.handleLogin} loggedInStatus={this.props.isLoggedIn}/>
                 )}
               />
               <Route
