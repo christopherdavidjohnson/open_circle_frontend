@@ -48,7 +48,9 @@ class Login extends Component {
   };
 
   redirect = () => {
-    this.props.history.push('/feed')
+    const circles = this.props.circles;
+    const circle_id = circles[0].id
+    this.props.history.push(`/feed/${circle_id}`)
   }
 
   handleErrors = () => {

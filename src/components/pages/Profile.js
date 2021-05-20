@@ -39,7 +39,7 @@ class Profile extends Component {
           }
         })
         this.setState({ posts: postArray });
-        setTimeout(fetchPosts, 4000);
+        setTimeout(fetchPosts, 30000);
       });
     };
   fetchPosts();

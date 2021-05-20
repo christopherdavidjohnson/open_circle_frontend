@@ -9,7 +9,6 @@ class Post extends Component {
     super();
   }
   render () {
-    console.log(this.props.data.user.created_at)
     return(
       <div className="post-box">
 
