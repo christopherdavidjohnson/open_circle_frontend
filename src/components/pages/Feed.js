@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CircleNav from '../navs/CircleNav';
 import Post from '../Post.js';
+import SubmitPost from '../forms/SubmitPost.js';
 import { Link } from 'react-router-dom';
 
 import axios from "axios";
@@ -13,14 +14,14 @@ import banner4 from '../images/banner3.png';
 
 import '../stylesheets/Feed.css';
 
-const SERVER_URL = "https://open-circle-server.herokuapp.com/posts.json";
+const SERVER_URL = "https://open-circle-server.herokuapp.com/posts";
 
 
 
 class Feed extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       posts: [],
     };
@@ -28,9 +29,10 @@ class Feed extends Component {
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL).then((results) => {
-
+      axios.get(SERVER_URL, {withCredentials: true}).then((results) => {
+        console.log("posts results on feed", results)
         this.setState({ posts: results.data });
+        console.log("the posts are", this.state.posts);
         setTimeout(fetchPosts, 4000);
       });
     };
@@ -40,9 +42,10 @@ class Feed extends Component {
   render () {
     return (
       <div className="container">
-      <div>
-        <CircleNav user={this.props.user}/>
-      </div>
+        <h1>{this.props.user.name}</h1>
+        <div>
+          <CircleNav user={this.props.user}/>
+        </div>
 
       <div className="feed-bottom">
 
@@ -50,6 +53,18 @@ class Feed extends Component {
 
           <div className="feed-posts feed-box">
             <p className="feed-header">Posts</p>
+
+            <div className="post-box">
+              <div className="post-header">
+                <img className="poster-pic" src={this.props.user.profile_image} alt="profile" />
+                <div className="post-name-and-time">
+                  <div className="poster-name">{this.props.user.name} </div>
+                </div>
+              </div>
+              <div className="post-body">
+                <SubmitPost/>
+              </div>
+            </div>
 
             {this.state.posts.map((p) => (
               <Post data={p}/>
@@ -62,19 +77,23 @@ class Feed extends Component {
           <div className="feed-members feed-box">
             <p className="feed-header">Members</p>
 
-            <Link to={`/profile/${this.props.user.password_digest}`}>
+            <Link to={`/profile/edit/${this.props.user.id}`}>
               <div className="members-box members-box-self">
                 <img className="member-pic member-pic-self" src={this.props.user.profile_image} alt="profile" />
                 <div className="member-name member-name-self"> Edit {this.props.user.name} </div>
               </div>
             </Link>
 
-            {this.state.posts.map((m) => (
+            {this.state.posts.map((p) => (
 
-              <Link to={`/profile/${m.user.id}`}>
+              <Link to={`/profile/${p.user.id}`}>
                 <div className="members-box">
-                  <img className="member-pic" src={m.user.profile_image} alt="profile" />
-                  <div className="member-name"> {m.user.name} </div>
+                  <img className="member-pic" src={p.user.profile_image} alt="profile" />
+                  <div className="member-name"> {p.user.name} </div>
+                  <p> test {p.user.name} </p>
+                  {p.user.circles?.map(circle => circle === "fruit" && <p>{circle.id}</p>
+
+                  )}
                 </div>
               </Link>
 
@@ -98,11 +117,12 @@ class Feed extends Component {
               </div>
 
               <div className="feed-photo-container">
-              </div></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }

@@ -12,7 +12,7 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
+const SERVER_URL = 'https://open-circle-server.herokuapp.com/';
 
 class Profile extends Component {
 
