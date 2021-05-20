@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       isLoggedIn: false,
       user: {},
-      circles: []
+      circles: [],
+      currentCircle: ''
     };
   }
 

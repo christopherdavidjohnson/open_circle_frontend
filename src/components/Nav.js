@@ -41,7 +41,7 @@ class Nav extends Component {
               </div>
 
               <div className="nav">
-                <Link to="/feed/:id">Feed</Link>
+                <Link to="/feed/:circle_id">Feed</Link>
               </div>
 
               {

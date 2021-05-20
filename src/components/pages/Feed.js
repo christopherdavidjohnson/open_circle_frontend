@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import CircleNav from '../navs/CircleNav';
-import Post from '../Post.js';
-import SubmitPost from '../forms/SubmitPost.js';
 import { Link } from 'react-router-dom';
-
 import axios from "axios";
+
+
+import CircleNav from '../navs/CircleNav';
+import Post from '../Post';
+import SubmitPost from '../forms/SubmitPost';
+import CircleMembers from '../CircleMembers'
 
 import profile from '../images/profile_placeholder.png';
 import banner1 from '../images/banner.png';
@@ -15,13 +17,14 @@ import banner4 from '../images/banner3.png';
 import '../stylesheets/Feed.css';
 
 const SERVER_URL_POSTS = "https://open-circle-server.herokuapp.com/posts";
-
+const SERVER_URL_USERS = "https://open-circle-server.herokuapp.com/users";
 class Feed extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
+      users: []
     };
   }
 
@@ -35,7 +38,18 @@ class Feed extends Component {
         setTimeout(fetchPosts, 30000);
       });
     };
+
+    const fetchUsers = () => {
+      axios.get(SERVER_URL_USERS).then((results) => {
+        console.log("USERS IN MEMBER BOX on feed", results);
+        console.log(SERVER_URL_USERS);
+        this.setState({ users: results.data });
+        setTimeout(fetchUsers, 30000);
+      });
+    }
+
   fetchPosts();
+  fetchUsers();
   }
 
   render () {
@@ -74,31 +88,7 @@ class Feed extends Component {
 
         <div className="feed-right">
 
-          <div className="feed-members feed-box">
-            <p className="feed-header">Members</p>
-
-            <Link to={`/self/edit/${this.props.user.id}`}>
-              <div className="members-box members-box-self">
-                <img className="member-pic member-pic-self" src={this.props.user.profile_image} alt="profile" />
-                <div className="member-name member-name-self"> Edit {this.props.user.name} </div>
-              </div>
-            </Link>
-
-            {this.state.posts.map((p) => (
-
-              <Link to={`/profile/${p.user.id}`}>
-                <div className="members-box">
-                  <img className="member-pic" src={p.user.profile_image} alt="profile" />
-                  <div className="member-name"> {p.user.name} </div>
-                  <p> test {p.user.name} </p>
-                  {p.user.circles?.map(circle => circle === "fruit" && <p>{circle.id}</p>
-                  )}
-                </div>
-              </Link>
-
-          ))}
-
-          </div>
+          <CircleMembers currentUser={this.props.user} friends={this.state.users}/>
 
           <div className="feed-photos feed-box">
             <p className="feed-header">Photos</p>
@@ -126,4 +116,4 @@ class Feed extends Component {
   }
 }
 
-export default Feed
+export default Feed;
