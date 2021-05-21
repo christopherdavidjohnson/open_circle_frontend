@@ -12,7 +12,8 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL = 'https://open-circle-server.herokuapp.com/posts';
+const SERVER_URL_POSTS = 'https://open-circle-server.herokuapp.com/posts';
+const SERVER_URL_USERS = 'https://open-circle-server.herokuapp.com/users/';
 
 class Self extends Component {
 
@@ -26,20 +27,24 @@ class Self extends Component {
 
   componentDidMount() {
     const fetchPosts = () => {
-      axios.get(SERVER_URL).then((results) => {
-
-        const postArray = [];
-
-        results.data.forEach((post)=>{
-          if (post.user.name === this.props.user.name){
-            postArray.push(post);
-          }
+      this.props.circles.forEach((circle)=>{
+        axios.get(`${SERVER_URL_POSTS}?circle_id=${circle.id}`).then((results) => {
+          console.log(`${SERVER_URL_POSTS}?circle_id=${circle.id}`);
+          const postArray = [];
+          results.data.forEach((post)=>{
+            if (post.user.name === this.state.name){
+              console.log('the post is',post)
+              postArray.push(post);
+            }
+          })
+          console.log('USER POSTS', postArray);
+          this.setState({ posts: [...postArray,...this.state.posts] }, ()=>{
+            console.table(this.state.posts);
+          });
         })
-        this.setState({ posts: postArray });
-        setTimeout(fetchPosts, 30000);
       });
     };
-  fetchPosts();
+    fetchPosts();
   }
 
   displayImages = () => {

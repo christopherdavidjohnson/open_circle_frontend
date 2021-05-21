@@ -23,34 +23,22 @@ class Feed extends Component {
     super(props);
     this.state = {
       posts: [],
-      users: []
+      users: [],
+      timerID: ''
     };
   }
 
   componentDidMount() {
-    const fetchPosts = () => {
-      const url=`${SERVER_URL_POSTS}?circle_id=${this.props.match.params.circle_id}`
-      axios.get(url).then((results) => {
-        this.setState({ posts: results.data });
-        setTimeout(fetchPosts, 4000);
-      });
-    };
 
-    const fetchUsers = () => {
-      axios.get(`${SERVER_URL_USERS}?circle_id=${this.props.match.params.circle_id}`).then((results) => {
-        console.log("USERS IN MEMBER BOX on feed", results);
-        console.log('fetch users url',SERVER_URL_USERS);
-        this.setState({ users: results.data });
-        setTimeout(fetchUsers, 4000);
-      });
-    }
-
-  fetchPosts();
-  fetchUsers();
+    this.props.fetchPosts(this.props.circleId);
+    this.props.fetchUsers(this.props.circleId);
+    clearInterval(this.state.timerID);
+    const id = setInterval(()=>this.props.fetchPosts(this.props.circleId), 2000);
+    this.setState({timerID: id});
   }
 
   render () {
-    console.log("the posts are", this.state.posts);
+    console.log("the posts are", this.props.posts);
     return (
       <div className="container">
         <h1>{this.props.user.name}</h1>
@@ -72,11 +60,11 @@ class Feed extends Component {
                   </div>
                 </div>
                 <div className="post-body">
-                  <SubmitPost user={this.props.user} circleparam={this.props.match.params.circle_id}/>
+                  <SubmitPost user={this.props.user} circleparam={this.props.circleId}/>
                 </div>
               </div>
 
-            {this.state.posts.map((p) => (
+            {this.props.posts.map((p) => (
               <Post post={p}/>
             ))}
           </div>
@@ -84,7 +72,7 @@ class Feed extends Component {
 
         <div className="feed-right">
 
-          <CircleMembers currentUser={this.props.user} friends={this.state.users} circleparam={this.props.match.params.circle_id}
+          <CircleMembers currentUser={this.props.user} friends={this.props.users} circleparam={this.props.circleId}
           />
 
           <div className="feed-photos feed-box">

@@ -47,7 +47,7 @@ class Profile extends Component {
         })
       });
 
-      // setTimeout(fetchPosts, 30000);
+      setTimeout(fetchPosts, 2000);
     };
 
 

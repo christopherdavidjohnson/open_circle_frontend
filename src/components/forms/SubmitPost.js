@@ -13,21 +13,6 @@ class SubmitPosts extends Component {
     this._handleChangeContent = this._handleChangeContent.bind(this);
   }
 
-  componentDidMount() {
-    const fetchPosts = () => {
-      axios.get(SERVER_URL).then((results) => {
-
-        this.setState({ posts: results.data });
-        setTimeout(fetchPosts, 30000);
-      });
-    };
-  }
-
-
-
-
-
-
   _handleSubmit(event){
     event.preventDefault();
     axios
