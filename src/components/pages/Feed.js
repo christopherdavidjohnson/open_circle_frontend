@@ -41,7 +41,7 @@ class Feed extends Component {
         console.log("USERS IN MEMBER BOX on feed", results);
         console.log('fetch users url',SERVER_URL_USERS);
         this.setState({ users: results.data });
-        // setTimeout(fetchUsers, 30000);
+        setTimeout(fetchUsers, 4000);
       });
     }
 

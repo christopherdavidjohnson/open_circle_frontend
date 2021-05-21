@@ -11,12 +11,21 @@ import Feed from "./pages/Feed";
 import Self from "./pages/Self";
 import CircleNav from './navs/CircleNav';
 
-
 import './stylesheets/App.css';
+
+const SERVER_URL_POSTS = "https://open-circle-server.herokuapp.com/posts";
+const SERVER_URL_USERS = "https://open-circle-server.herokuapp.com/users";
 
 class Nav extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentCircleID: '',
+    }
+  }
+
+  _handleCircleClick = (circle_id) => {
+    this.setState({currentCircleID: circle_id})
   }
 
   render () {
@@ -37,8 +46,9 @@ class Nav extends Component {
               </div>
 
               <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link>
-              
-              <CircleNav user={ this.props.user } circles={ this.props.circles }/>
+
+              <CircleNav user={ this.props.user } circles={ this.props.circles }
+              circleClick={ this._handleCircleClick }/>
 
             </div> : null
             }
@@ -70,7 +80,8 @@ class Nav extends Component {
               <Route
                 path="/feed/:circle_id"
                 render={props=> (
-                  <Feed user={ this.props.user } circles={ this.props.circles } {...props}/>
+                  <Feed user={ this.props.user } circleId={ this.props.currentCircleID }
+                   {...props}/>
                 )}
               />;
               <Route
