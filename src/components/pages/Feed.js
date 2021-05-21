@@ -53,14 +53,14 @@ class Feed extends Component {
     console.log("the posts are", this.state.posts);
     return (
       <div className="container">
-        <h1>{this.props.user.name}</h1>
+        <h1>Current Circle</h1>
 
         <div className="feed-bottom">
 
           <div className="feed-left">
 
             <div className="feed-posts feed-box">
-            
+
 
               <div className="post-box">
                 <div className="post-header">
@@ -87,25 +87,7 @@ class Feed extends Component {
           <CircleMembers currentUser={this.props.user} friends={this.state.users} circleparam={this.props.match.params.circle_id}
           />
 
-          <div className="feed-photos feed-box">
-            <p className="feed-header">Photos</p>
 
-            <div className="feed-photos-container">
-
-              <div className="feed-photo-container">
-                <img className="feed-photo-thumbnail" src={banner1} alt="profile" />
-              </div>
-
-              <div className="feed-photo-container">
-              </div>
-
-              <div className="feed-photo-container">
-              </div>
-
-              <div className="feed-photo-container">
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

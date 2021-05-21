@@ -12,8 +12,10 @@
  /* background-color: #e1e1e1; */
 }
 
+
+
 .feed-box{
-  width: 45vw;
+  width: 60vw;
 
   margin-left: 3.5vw;
   margin-top: 3.5vw;
@@ -25,7 +27,8 @@
 }
 
 .feed-members{
-
+  width: 30vw;
+  text-align: right;
 }
 
 .members-box {
@@ -35,9 +38,10 @@
   height: 60px;
   background-color: #e1e1e1;
   border-radius: 1vw;
-  text-align: left;
+  text-align: right;
   filter: drop-shadow(0px 0px 0.5vw #999999);
 }
+
 
 .members-box:hover {
     background-color: #a6a6a6;
@@ -53,7 +57,7 @@
 .member-name{
   width: 100%;
   margin: auto;
-  padding-left: 1vw;
+  padding-right: 2vw;
 }
 
 .feed-photos{
@@ -96,6 +100,7 @@
 }
 
 .feed-photos{
+    width: 30vw;
 }
 
 
@@ -122,4 +127,13 @@
 
 .post-name-and-time{
   padding: 1vw;
+}
+
+.members-box-self{
+  margin-bottom: 10vh;
+}
+
+a.members-box{
+  text-decoration: none;
+  
 }

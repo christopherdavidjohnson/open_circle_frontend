@@ -23,8 +23,8 @@ class Post extends Component {
         </div>
         <div className="post-body">
           <p className="post-text"> {this.props.post.content}</p>
-          <p>{this.props.post.image}</p>
-          <p>the circle id is {this.props.post.circle_id}</p>
+      
+
         </div>
       </div>
     );

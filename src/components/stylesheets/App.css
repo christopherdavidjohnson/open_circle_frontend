@@ -7,7 +7,6 @@
   z-index: 1;
   width: 100vw;
   /* background-color: rgba(153, 153, 153, 0.5); */
-  position: fixed;
 }
 
 
@@ -19,4 +18,29 @@
 .home_header{
   margin-top: 45vh;
   margin-bottom: 5vh;
+}
+
+.inputitemfeed{
+  margin: 5%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.8vw;
+  background-color: #b2ffee;
+  border-radius: 2vw;
+  border-style: none;
+  width: 90%;
+}
+
+.post-text{
+  margin: 1vw;
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
+.submititemfeed{
+ border-radius: 100vw;
+ border: 0;
+  background-color: blue;
+  width: 25px;
+  height: 25px;
 }

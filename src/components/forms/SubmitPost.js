@@ -24,10 +24,6 @@ class SubmitPosts extends Component {
   }
 
 
-
-
-
-
   _handleSubmit(event){
     event.preventDefault();
     axios
@@ -55,6 +51,7 @@ class SubmitPosts extends Component {
       <form onSubmit={this._handleSubmit}>
         <p>
           <input
+            className ="inputitemfeed"
             type="text"
             onChange={this._handleChangeContent}
             value={this.state.content}
@@ -62,7 +59,7 @@ class SubmitPosts extends Component {
           />
         </p>
 
-        <input type="submit" value="Posts" onSubmit={this._handleSubmit} />
+        <input className ="submititemfeed" type="submit" value="" onSubmit={this._handleSubmit} />
 
       </form>
     );
