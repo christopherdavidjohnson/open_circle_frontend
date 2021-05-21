@@ -5,12 +5,13 @@ import './stylesheets/Feed.css';
 
 
 class Post extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   render () {
-    // console.log('POST RENDERING')
-    // console.log('POST TO RENDER', this.props.post.content)
+    console.log('POST RENDERING')
+    console.log('POST TO RENDER', this.props.post)
+    if(!this.props.post) return '';
     return(
       <div className="post-box">
 
@@ -28,6 +29,7 @@ class Post extends Component {
         </div>
       </div>
     );
+
   }
 }
 
