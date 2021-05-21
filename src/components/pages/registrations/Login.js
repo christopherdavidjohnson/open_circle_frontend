@@ -76,6 +76,7 @@ class Login extends Component {
 
         <form className="loginform" onSubmit={this.handleSubmit}>
          <input
+           className ="inputitem"
            placeholder="email"
            type="text"
            name="email"
@@ -83,17 +84,18 @@ class Login extends Component {
            onChange={this.handleChange}
          />
          <input
+           className ="inputitem"
            placeholder="password"
            type="password"
            name="password"
            value={password}
            onChange={this.handleChange}
          />
-        <button placeholder="submit" type="submit">
+        <button className ="inputitem" placeholder="submit" type="submit">
            Log In
          </button>
-         <div>
-           or <Link to='/signup'>Not a member? Sign up!</Link>
+         <div className="signupform">
+           Not a member?  <Link to='/signup'>Sign up!</Link>
          </div>
 
         </form>
