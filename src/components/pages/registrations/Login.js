@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import circlelogo from '../../images/ciircle.gif';
 
 import '../../stylesheets/Login.css';
 
@@ -37,6 +38,7 @@ class Login extends Component {
     axios.post('https://open-circle-server.herokuapp.com/login', {user}, {withCredentials: true}).then(response => {
       console.log("this is the post request", response.data.logged_in)
       if (response.data.logged_in) {
+
         this.props.handleLogin(response.data)
         this.redirect()
       } else {
@@ -68,9 +70,11 @@ class Login extends Component {
   render () {
     const {email, password} = this.state
     return (
-      <div>
-        <h1 className="home_header"> Welcome to the Login page!</h1>
-        <form onSubmit={this.handleSubmit}>
+    <div className="loginbg">
+      <div className="logincontainer">
+      <img className="circlelogo" src={circlelogo} alt="circle" />
+
+        <form className="loginform" onSubmit={this.handleSubmit}>
          <input
            placeholder="email"
            type="text"
@@ -99,6 +103,7 @@ class Login extends Component {
           }
         </div>
       </div>
+    </div>
     );
   }
 }

@@ -1,0 +1,30 @@
+.loginbg{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  background-color: #0e1211;
+
+}
+
+.logincontainer{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.circlelogo{
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.loginform{
+  position: absolute;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  width: 82vh;
+  z-index: +1;
+  margin-top: 45vh;
+  background-color: rgba(26, 255, 206, 1);
+  border-radius: 5vw;
+
+}
