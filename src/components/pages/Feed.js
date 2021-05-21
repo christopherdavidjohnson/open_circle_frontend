@@ -48,7 +48,7 @@ class Feed extends Component {
           <div className="feed-left">
 
             <div className="feed-posts feed-box">
-              <p className="feed-header">Posts</p>
+            
 
               <div className="post-box">
                 <div className="post-header">
