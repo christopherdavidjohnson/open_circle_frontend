@@ -28,16 +28,9 @@ class Nav extends Component {
           {this.props.isLoggedIn ?
             <div className="navbar">
 
-              <div className="nav">
-                <Link to="/circles">Circles</Link>
-              </div>
-
-              <div className="nav">
-                <Link to="/messages">Messages</Link>
-              </div>
 
               <Link to='/logout' onClick={this.props.handleClick}>Log Out</Link>
-              
+
               <CircleNav user={ this.props.user } circles={ this.props.circles }/>
 
             </div> : null
