@@ -33,7 +33,7 @@ class Feed extends Component {
     this.props.fetchPosts(this.props.circleId);
     this.props.fetchUsers(this.props.circleId);
     clearInterval(this.state.timerID);
-    const id = setInterval(()=>this.props.fetchPosts(this.props.circleId), 2000);
+    const id = setInterval(()=>this.props.fetchPosts(this.props.circleId), 5000);
     this.setState({timerID: id});
   }
 
@@ -41,7 +41,7 @@ class Feed extends Component {
     console.log("the posts are", this.props.posts);
     return (
       <div className="container">
-        <h1>Current Circle</h1>
+        <h1></h1>
 
         <div className="feed-bottom">
 

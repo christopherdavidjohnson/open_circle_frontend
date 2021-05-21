@@ -1,7 +1,7 @@
 .feed-bottom{
   display: flex;
   margin-bottom: 4vw;
-  margin-top: 4vw;
+  margin-top: 150px;
 }
 
 
@@ -135,5 +135,5 @@
 
 a.members-box{
   text-decoration: none;
-  
+
 }
