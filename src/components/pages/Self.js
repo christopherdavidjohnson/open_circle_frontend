@@ -12,8 +12,8 @@ import banner4 from '../images/banner3.png';
 
 import profile from '../images/profile_placeholder.png';
 
-const SERVER_URL_POSTS = 'https://open-circle-server.herokuapp.com/posts';
-const SERVER_URL_USERS = 'https://open-circle-server.herokuapp.com/users/';
+const SERVER_URL_POSTS = 'https://open-circle-backend.herokuapp.com/posts';
+const SERVER_URL_USERS = 'https://open-circle-backend.herokuapp.com/users/';
 
 class Self extends Component {
 

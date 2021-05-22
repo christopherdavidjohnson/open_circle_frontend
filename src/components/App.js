@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import './stylesheets/App.css';
 
-const SERVER_URL_CIRCLES = "https://open-circle-server.herokuapp.com/circles";
+const SERVER_URL_CIRCLES = "https://open-circle-backend.herokuapp.com/circles";
 
 
 class App extends Component {

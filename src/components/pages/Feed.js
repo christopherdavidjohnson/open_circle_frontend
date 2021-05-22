@@ -15,8 +15,8 @@ import banner4 from '../images/banner3.png';
 
 import '../stylesheets/Feed.css';
 
-const SERVER_URL_POSTS = "https://open-circle-server.herokuapp.com/posts";
-const SERVER_URL_USERS = "https://open-circle-server.herokuapp.com/users";
+const SERVER_URL_POSTS = "https://open-circle-backend.herokuapp.com/posts";
+const SERVER_URL_USERS = "https://open-circle-backend.herokuapp.com/users";
 class Feed extends Component {
 
   constructor(props) {

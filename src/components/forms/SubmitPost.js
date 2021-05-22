@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const SERVER_URL = "https://open-circle-server.herokuapp.com/posts";
+const SERVER_URL = "https://open-circle-backend.herokuapp.com/posts";
 
 class SubmitPosts extends Component {
   constructor() {

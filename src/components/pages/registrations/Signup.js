@@ -31,7 +31,7 @@ class Signup extends Component {
       password_confirmation: password_confirmation
     }
 
-    axios.post('https://open-circle-server.herokuapp.com/users', {user}, {withCredentials: true}).then(response => {
+    axios.post('https://open-circle-backend.herokuapp.com/users', {user}, {withCredentials: true}).then(response => {
       if (response.data.status === 'created') {
         this.props.handleLogin(response.data)
         this.redirect()

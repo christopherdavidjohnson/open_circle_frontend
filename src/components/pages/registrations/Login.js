@@ -35,7 +35,7 @@ class Login extends Component {
         password: password
       }
 
-    axios.post('https://open-circle-server.herokuapp.com/login', {user}, {withCredentials: true}).then(response => {
+    axios.post('https://open-circle-backend.herokuapp.com/login', {user}, {withCredentials: true}).then(response => {
       console.log("this is the post request", response.data.logged_in)
       if (response.data.logged_in) {
 

@@ -13,8 +13,8 @@ import CircleNav from './navs/CircleNav';
 
 import './stylesheets/App.css';
 
-const SERVER_URL_POSTS = "https://open-circle-server.herokuapp.com/posts";
-const SERVER_URL_USERS = "https://open-circle-server.herokuapp.com/users";
+const SERVER_URL_POSTS = "https://open-circle-backend.herokuapp.com/posts";
+const SERVER_URL_USERS = "https://open-circle-backend.herokuapp.com/users";
 
 class Nav extends Component {
   constructor(props) {
